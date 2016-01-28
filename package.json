@@ -1,0 +1,22 @@
+{
+  "name": "wsk-client-examples",
+  "version": "2.0.0",
+  "description": "ACE WSK Client implementation examples.",
+  "repository":{
+    "type" : "git",
+    "url" : "https://github.com/yurks/wsk-client-examples.git"
+  },
+  "foundation": {
+    "name": "AcademixDirect, Inc.",
+    "url": "http://academixdirect.com/",
+    "url_short": "axd.co"
+  },
+  "author": {
+    "name": "Yurk Sha",
+    "email": "yurkins@gmail.com",
+    "url": "https://github.com/yurks"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {}
+}
