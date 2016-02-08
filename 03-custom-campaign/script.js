@@ -1,4 +1,4 @@
-!function() {
+!function () {
   var CAMPAIGN_ID = (location.search.match(/[\?&]campaign=([^&]*)/) || '')[1];
   var SESSION_ID = (location.search.match(/[\?&]session=([^&]*)/) || '')[1];
 
@@ -30,22 +30,10 @@
       }
     }
 
-  }).on('ace-attached-form', function (e, results, customform, result) {
+  }).on('ace-attached-form', function (e, results, resultform, result) {
 
-    customform.on('ace-initialized', function (e, customform) {
-      // This functionality allows to city/state pre-population based on zip.
-      // This applies if your zip/state/city fields are on the results page.
-      customform.ace('zip', {
-        field_zip: 'PostalCode',
-        field_city: 'City',
-        field_state: 'State',
-        // Do not automatically adjust cities selectbox.
-        width_adjust: false,
-        // Auto-prepopulate city/state only if valid form WAS NOT submitted early.
-        // If WAS, then all another forms will come with stored values
-        // for city/state/zip and we actually don't need prepopulate it again.
-        autofetch: 'not_predefined'
-      });
+    resultform.on('ace-initialized', function (e, resultform) {
+
     });
   });
 

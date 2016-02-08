@@ -1,375 +1,423 @@
 .ace-container {
-  font-size: 14px;
-  line-height: 1.6em;
-  color: #222;
-  background: #fff;
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #222;
+    background: #fff;
 }
 
 .ace-container + .ace-container {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 
 /* form page layout styling */
 .ace-form-page {
-  padding: 1em 0;
-  margin: 0;
-  border: 0;
+    padding: 1em 0;
+    margin: 0;
+    border: 0;
 }
 
 .ace-form-page-title {
-  padding: 0 1.5em;
-  margin-bottom: 1em;
-  font-size: 1.4em;
-  line-height: 2em;
-  color: #333;
-  border-bottom: 1px solid #eee;
+    padding: 0 1.5em;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+    line-height: 2em;
+    color: #333;
+    border-bottom: 1px solid #eee;
 }
 
 .ace-field-no-controls .ace-field-title {
-  width: auto;
+    width: auto;
 }
 
 .ace-result {
-  margin: 0.5em 0;
-  padding: 1em 1.5em;
+    margin: 0.5em 0;
+    padding: 1em 1.5em;
 }
 
 .ace-result .ace-form-container {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 
 .ace-result .ace-form-page,
 .ace-form-actions {
-  border-top: 2px solid #eee;
+    border-top: 2px solid #eee;
 }
 
 .ace-results-actions {
-  border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #eee;
 }
 
 .ace-form-actions,
 .ace-results-actions {
-  background-color: #f5f5f5;
-  padding: 1em 1.5em;
-  text-align: right;
+    background-color: #f5f5f5;
+    padding: 1em 1.5em;
+    text-align: right;
 }
 
 .ace-result-actions .ace-action {
-  margin: 1em 0.5em 1em 0;
+    margin: 1em 0.5em 1em 0;
 }
 
 /* form fields styling */
 .ace-field-title {
-  float: left;
-  width: 38%;
-  padding-top: 0.3em;
-  text-align: right;
+    float: left;
+    width: 38%;
+    padding-top: 0.35em;
+    text-align: right;
 }
 
 .ace-field-controls {
-  margin: 0 20% 0 40%;
-}
-
-.ace-field {
-  margin: 0;
-  font: inherit;
-  color: inherit;
+    margin: 0 20% 0 40%;
 }
 
 .ace-field-wrapper {
-  margin: 0.5em 0;
+    margin: 0.5em 0;
 }
 
-.ace-field-wrapper select {
-  text-transform: none;
-  padding: 0 .3em;
-  max-width: 100%;
-}
-
-.ace-field-wrapper select,
-.ace-field-text .ace-field {
-  height: 2.2em;
-  line-height: 2.2em;
-}
-
-.ace-field-text .ace-field,
-.ace-field-textarea .ace-field {
-  padding: 0 .6em;
-}
-
-.ace-field-wrapper select,
-.ace-field-text .ace-field,
-.ace-field-textarea .ace-field {
-  width: 100%;
-  border: 1px solid #aaa;
-  background-color: #fff;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.ace-field-textarea .ace-field {
-  height: auto;
-}
-
-.ace-field[disabled],
-.ace-field[readonly] {
-  background-color: #eee;
-  opacity: 1;
-}
-
-.ace-field[disabled] {
-  cursor: not-allowed;
-}
-
-/* radio or checkbox styling */
-.ace-field-item .ace-field {
-  padding: 0;
-  line-height: normal;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
+/* field item for checkboxes and radios */
 .ace-field-item {
-  padding-left: 15px;
-  display: block;
-  line-height: 145%;
+    padding-left: 22px;
+    display: block;
+    line-height: 145%;
 }
 
 .ace-field-item > * {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .ace-field-item:first-child {
-  padding-top: .4em;
+    padding-top: .4em;
 }
 
-.ace-field-item .ace-field {
-  display: inline-block;
-  margin: -0.1em 0.2em 0 -15px;
+/* controls styling */
+.ace-field-controls .ace-control {
+    margin: 0;
+    border-radius: 0;
+    font: inherit;
+    color: inherit;
 }
+
+.ace-field-controls .ace-control-select,
+.ace-field-controls .ace-control-text,
+.ace-field-controls .ace-control-textarea {
+    height: 2.2em;
+    padding: .38em .3em .3em .4em;
+    line-height: 1.35;
+}
+
+.ace-field-controls .ace-control-select {
+    text-transform: none;
+    max-width: 100%;
+}
+
+.ace-field-controls .ace-control-text,
+.ace-field-controls .ace-control-textarea {
+    padding-left: .6em;
+    padding-right: .6em;
+}
+
+.ace-field-controls .ace-control-select,
+.ace-field-controls .ace-control-text,
+.ace-field-controls .ace-control-textarea {
+    width: 100%;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ace-field-controls .ace-control-textarea {
+    height: auto;
+}
+
+.ace-field-controls .ace-control[disabled],
+.ace-field-controls .ace-control[readonly] {
+    background-color: #eee;
+    opacity: 1;
+}
+
+.ace-field-controls .ace-control[disabled] {
+    cursor: not-allowed;
+}
+
+/* radio or checkbox styling */
+.ace-field-controls .ace-control-radio,
+.ace-field-controls .ace-control-checkbox {
+    padding: 0;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: -0.1em 0.2em 0 -22px;
+}
+
+
+/* controls focus */
+.ace-field-controls .ace-control-select:focus,
+.ace-field-controls .ace-control-text:focus,
+.ace-field-controls .ace-control-textarea:focus {
+    border-color: #66afe9;
+    color: inherit;
+    outline: 0;
+}
+
+.ace-field-controls .ace-control-radio:focus,
+.ace-field-controls .ace-control-checkbox:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+/* mozilla outline remove */
+.ace-field-controls .ace-control-select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;;
+}
+.ace-field-required .ace-control-select .ace-placeholder {
+    display3: none!important;
+}
+
+
+/* field placeholders */
+.ace-field-controls .ace-control-text::-moz-placeholder,
+.ace-field-controls .ace-control-textarea::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+.ace-field-controls .ace-control-text:-ms-input-placeholder,
+.ace-field-controls .ace-control-textarea:-ms-input-placeholder {
+    color: #999;
+}
+
+.ace-field-controls .ace-control-text::-webkit-input-placeholder,
+.ace-field-controls .ace-control-textarea::-webkit-input-placeholder {
+    color: #999;
+}
+
+.ace-field-controls .ace-control-text:focus::-webkit-input-placeholder,
+.ace-field-controls .ace-control-textarea:focus::-webkit-input-placeholder {
+    color: transparent!important;
+}
+
+.ace-field-controls .ace-control-select option,
+.ace-field-controls .ace-control-select optgroup {
+    color: #222;
+}
+.ace-field-controls .ace-control-select.ace-control-empty,
+.ace-field-controls .ace-control-select .ace-placeholder {
+    color: #999;
+}
+
 
 /* field validation messages styling */
 .ace-validation-message {
-  color: #C44102;
-  margin-bottom: 0;
-  vertical-align: middle;
+    color: #C44102;
+    margin-bottom: 0;
+    vertical-align: middle;
 }
 
-.ace-field-validation-error .ace-field,
+.ace-field-validation-error .ace-control,
 .ace-field-validation-error .ace-field-item-label {
-  color: #C44102;
-  border-color: #C44102;
+    color: #C44102;
+    border-color: #C44102;
+}
+.ace-field-validation-error .ace-control:focus {
+    border-color: #C44102;
 }
 
-.ace-field-wrapper select:focus,
-.ace-field-text .ace-field:focus,
-.ace-field-textarea .ace-field:focus {
-  border-color: #66afe9;
-  color: inherit;
-  outline: 0;
-}
-
-.ace-field-item .ace-field:focus {
-  outline: thin dotted;
-  outline: 5px auto #66afe9;
-  outline-offset: -2px;
-}
-
-/* asteriks for required fields */
+/* asterisk for required fields */
 .ace-required {
-  color: #EF5003
+    color: #EF5003;
 }
 
-/* field placeholders */
-.ace-field-text .ace-field::-moz-placeholder,
-.ace-field-textarea .ace-field::-moz-placeholder {
-  color: #999;
-  opacity: 1;
+
+
+/* select controls customize */
+.ace-field-controls .ace-control-select::-ms-expand {
+    display: none;
+}
+.ace-ua-ie-lte9 + .ace-form .ace-control-select {
+    background-position: -100px top;
+    padding-right: .4em;
+}
+.ace-field-controls .ace-control-select {
+    padding-right: 1.7em;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    background-image: url('data:image/gif;base64,R0lGODlhCQAFAIABAFVVVf///yH5BAEAAAEALAAAAAAJAAUAAAIKhH+BGYoNGWxgFgA7');
+    background-repeat: no-repeat;
+    background-position: right 0.5em top 55%;
 }
 
-.ace-field-text .ace-field:-ms-input-placeholder,
-.ace-field-textarea .ace-field:-ms-input-placeholder {
-  color: #999;
-}
-
-.ace-field-text .ace-field::-webkit-input-placeholder,
-.ace-field-textarea .ace-field::-webkit-input-placeholder {
-  color: #999;
-}
-
-.ace-field:focus::-webkit-input-placeholder {
-  color: transparent !important;
-}
 
 /* result styling */
 .ace-result-index {
-  display: inline-block;
-  font-size: 2.2em;
-  margin: 0 1% 0 0;
-  width: 5%;
-  font-family: serif;
-  font-weight: bold;
-  vertical-align: middle;
+    display: inline-block;
+    font-size: 2.2em;
+    margin: 0 1% 0 0;
+    width: 5%;
+    font-family: serif;
+    font-weight: bold;
+    vertical-align: middle;
 }
 
 .ace-result-index:after {
-  content: '.';
+    content: '.';
 }
 
 .ace-result-logo {
-  display: inline-block;
-  width: 33%;
-  margin: 0 1% 0 0;
-  vertical-align: middle;
+    display: inline-block;
+    width: 33%;
+    margin: 0 1% 0 0;
+    vertical-align: middle;
 }
 
 .ace-result-logo img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .ace-result-title {
-  text-align: right;
-  font-family: serif;
-  font-style: italic;
-  display: inline-block;
-  font-size: 2em;
-  line-height: 120%;
-  width: 60%;
-  vertical-align: middle;
+    text-align: right;
+    font-family: serif;
+    font-style: italic;
+    display: inline-block;
+    font-size: 2em;
+    line-height: 120%;
+    width: 60%;
+    vertical-align: middle;
 
 }
 
 .ace-result-description {
-  margin: 1em 0 0 0;
+    margin: 1em 0 0 0;
 }
 
 .ace-result-processed {
-  background-color: #e9fcdd
+    background-color: #e9fcdd
 }
 
 .ace-result .ace-form-container {
-  background-color: #fbfbfb;
+    background-color: #fbfbfb;
 }
 
 /* action button styling */
 .ace-action {
-  margin: 0 0 0 0.5em;
+    margin: 0 0 0 0.5em;
 }
 
 .ace-action,
 .ace-action:link {
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.5em 1.5em;
-  vertical-align: middle;
-  background-color: #fff;
-  color: #337ab7;
-  border: 1px solid #eee;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 1.5em;
+    vertical-align: middle;
+    background-color: #fff;
+    color: #337ab7;
+    border: 1px solid #eee;
 }
 
 .ace-action:hover,
 .ace-action:focus {
-  color: #222;
-  background-color: #f5f5f5;
+    color: #222;
+    background-color: #f5f5f5;
 }
 
 /* form submit button styling */
 .ace-action-form-submit,
 .ace-action-form-submit:link {
-  color: #fff;
-  background-color: #549fdd;
-  border-color: #549fdd;
+    color: #fff;
+    background-color: #549fdd;
+    border-color: #549fdd;
 }
 
 .ace-action-form-submit:hover,
 .ace-action-form-submit:focus {
-  background-color: #5594d3;
+    background-color: #5594d3;
 }
 
 /* messages styling */
 .ace-message {
-  padding: 0.5em 1em;
-  margin-bottom: 0.5em;
-  border: 1px solid #bce8f1;
-  color: #31708f;
-  background-color: #d9edf7;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    border: 1px solid #bce8f1;
+    color: #31708f;
+    background-color: #d9edf7;
 }
 
 .ace-message-error {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
 .ace-message .ace-action {
-  vertical-align: baseline;
-  padding: 0 1em;
+    vertical-align: baseline;
+    padding: 0 1em;
 }
 
 /* busy marker styling */
 .ace-busy {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .ace-busy span {
-  text-transform: lowercase;
-  font-size: 10px;
-  color: #555;
+    text-transform: lowercase;
+    font-size: 10px;
+    color: #555;
 }
 
 .ace-busy span:before {
-  content: ' ';
-  display: inline-block;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  margin: 0 6px 2px 0;
-  background-color: #333;
-  border-radius: 100%;
-  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-  animation: sk-scaleout 1.0s infinite ease-in-out;
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin: 0 6px 2px 0;
+    background-color: #333;
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
 }
 
 @-webkit-keyframes sk-scaleout {
-  0% {
-    -webkit-transform: scale(0)
-  }
-  100% {
-    -webkit-transform: scale(1.0);
-    opacity: 0;
-  }
+    0% {
+        -webkit-transform: scale(0)
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+    }
 }
 
 @keyframes sk-scaleout {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
-    opacity: 0;
-  }
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+        opacity: 0;
+    }
 }
 
 .ace-zip-container.ace-field-controls .ace-busy {
-  background: transparent;
+    background: transparent;
 }
 
 .ace-zip-container.ace-field-controls .ace-busy span:before {
-  right: 0;
-  margin: 0;
-  position: absolute;
+    right: 0;
+    margin: 0;
+    position: absolute;
 }
 
 .ace-container.ace-zip-container.ace-field-controls .ace-busy span {
-  top: 0.5em;
-  right: 0.5em;
-  margin: 0;
-  text-indent: 9999px;
-  overflow: hidden;
+    top: 0.5em;
+    right: 0.5em;
+    margin: 0;
+    text-indent: 9999px;
+    overflow: hidden;
 }
-

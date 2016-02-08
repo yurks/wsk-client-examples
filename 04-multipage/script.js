@@ -13,11 +13,13 @@ Ace.el('#demo').ace('form', {
   submit: 'lastpage',
 
   pages: [
-    { label: 'Page 1', fields: ['Program', 'Concentration'] },
+    {label: 'Page 1', fields: ['Program', 'Concentration']},
 
-    { label: 'Page 2', fields: [
+    {
+      label: 'Page 2', fields: [
       'HighSchoolGraduationYear', 'HighestLevelOfEducation',
-      'DegreeLevel', 'LearningEnvironment', 'MilitaryAffiliation']},
+      'DegreeLevel', 'LearningEnvironment', 'MilitaryAffiliation']
+    },
 
     // Below are settings for auto-generated page
     // where you can specify common page attributes.
@@ -30,8 +32,10 @@ Ace.el('#demo').ace('form', {
       classname: 'remaining-fields'
     },
 
-    { label: 'Almost done!', fields: ['PostalCode', 'City', 'State'],
-      label_submit: 'Submit form now!'}
+    {
+      label: 'Almost done!', fields: ['PostalCode', 'City', 'State'],
+      label_submit: 'Submit form now!'
+    }
 
   ],
 
@@ -41,106 +45,75 @@ Ace.el('#demo').ace('form', {
       preselect: 'all'
     },
     PostalCode: {
-      label: 'Zip Code',
+      // mask for US-only postal codes
       mask: '99999',
-      maxlength: 5,
+      // custom validation message
       validation_message: 'Invalid Zip Code',
-      validation: /^[0-9]{5}$/
+      // pre-populates a field with specific value.
+      stored_values: ['90210']
     },
     State: {
-      mask: 'aa',
-      maxlength: 2,
-      validation_message: 'Invalid State',
-      validation: /^[A-Za-z]{2}$/
-    },
-    Phone: {
-      mask: '(999) 999-9999',
-      maxlength: 14,
-      validation: [
-        /^\(\d{3}\)\s\d{3}-\d{4}$/,
-        /^\((?!1|800|888|877|900|976)/,
-        /\s(?!(\d)\1{2}-\1{4})/,
-        /\s(?!555-1212)/]
+      mask: 'aa'
     },
     EmailAddress: {
       validation_message: 'Invalid Email Address',
-      validation: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-
       // pre-populates a field with specific value.
       stored_values: ['test@test.com']
     }
-  }
+  },
 
-}).on('ace-initialized', function (e, form) {
-
-  // This functionality allows to city/state pre-population based on zip.
-  form.ace('zip', {
-    field_zip: 'PostalCode',
-    field_city: 'City',
-    field_state: 'State',
-    // Do not automatically adjust cities combobox
-    width_adjust: false,
-    // always validate city/state, so only valid zip codes will be allowed
-    alwaysvalidate: true,
+  zip: {
     // Auto-prepopulate city/state if zip field has initial value
     autofetch: true
-  });
+  },
 
-}).on('ace-submitted', function (e, form) {
-  if (!(form.pager.isLastPage() && form.completed())) {
-    return;
-  }
+  // Settings for "results" method.
+  // This is simplified usage of `form.ace('results', settings)`
+  results: {
+    // Auto attach and fetch results after form was successfully submitted
+    attach: 'auto',
 
-  // Set back form busy marker, just for better UI looking
-  form.busy.set();
+    settings: {
+      pagerShow: true,
+      pagerEnabled: true,
+      pagerCycle: true,
 
-  // "results" method called as child from parent form instance,
-  // so we can skip "server" and "authkey" settings here,
-  // and no "follow_session" needed here.
-  form.ace('results', {
+      form: {
+        message_submitted: '<h2>Submitted!</h2>',
+        attach: 'action', // try 'auto' value also
 
-    pagerShow: true,
-    pagerEnabled: true,
-    pagerCycle: true,
-
-    form: {
-      message_submitted: '<h2>Submitted!</h2>',
-      attach: 'action', // try 'auto' value also
-      // here is custom form instance settings.
-      settings: {
-        // Hide predefined fields, which was submitted with primary form,
-        // or pre-populated with form settings.
-        hide_predefined: true,
-        pages: [{
-          fields: 'auto',
-          label_submit: 'Request information'
-        }]
+        // here is result-form instance settings.
+        settings: {
+          // Hide predefined fields, which was submitted with primary form,
+          // or pre-populated with form settings.
+          hide_predefined: true,
+          pages: [{
+            fields: 'auto',
+            label_submit: 'Request information'
+          }]
+        }
       }
     }
+  }
 
-  }).on('ace-initialized', function (e, results) {
-    // Remove form busy marker
-    form.busy.remove();
+// Event trigger on results instance was attached.
+}).on('ace-attached-results', function (e, form, results) {
 
-  }).on('ace-attached-form', function (e, results, customform, result) {
+  // All results instance events could be listen here
+  results.on('ace-initialized', function (e, results) {});
 
-    customform.on('ace-initialized', function (e, customform) {
-      customform.ace('zip', {
-        field_zip: 'PostalCode',
-        field_city: 'City',
-        field_state: 'State',
-        // Do not automatically adjust cities combobox.
-        width_adjust: false,
-        // Auto-prepopulate city/state only if valid form WAS NOT submitted early.
-        // If WAS, then all another forms will come with stored values
-        // for city/state/zip and we actually don't need prepopulate it again.
-        autofetch: 'not_predefined'
-      });
+  // Event trigger on result form instance was attached.
+  results.on('ace-attached-form', function (e, results, resultform, result) {
 
-      // autosubmit children form if all fields are validated already.
-      if (customform.validated()) {
-        customform.actions.fire('form-submit');
+    // All form instance events could be listen here
+    resultform.on('ace-initialized', function (e, resultform) {
+
+      // autosubmit result form if all fields are validated already.
+      if (resultform.validated()) {
+        resultform.actions.fire('form-submit');
       }
     });
   });
+
 });
+

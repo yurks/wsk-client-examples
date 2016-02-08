@@ -27,36 +27,33 @@
       'PostalCode': {
         placeholder: '-- Enter Zip --',
         label: 'Zip Code',
-        mask: '99999',
-        maxlength: 5,
-        validation_message: 'Invalid Zip Code',
-        validation: /^[0-9]{5}$/
+        mask: '99999'
       }
-    }
+    },
 
-  }).on('ace-submitted', function(e, form) {
-    if (!(form.pager.isLastPage() && form.completed())) {
-      return;
-    }
+    // Settings for "results" method.
+    // This is simplified usage of `form.ace('results', settings)`
+    results: {
+      // Auto attach and fetch results after form was successfully submitted
+      attach: 'auto',
 
-    // Set back form busy marker, just for better UI looking
-    form.busy.set();
+      settings: {
+        pagerShow: true,
+        pagerEnabled: true,
+        pagerCycle: true,
 
-    // .ace results method called as child from parent form instance
-    form.ace('results', {
-      pagerShow: true,
-      pagerEnabled: true,
-      pagerCycle: true,
-      form: {
-        message_submitted: '<h2>School submitted!</h2>',
-        settings: {
-          hide_predefined: true,
-          // we just re-use parent form fields configuration
-          fields: form.settings.get('fields')
+        form: {
+          message_submitted: '<h2>School submitted!</h2>',
+          settings: {
+            hide_predefined: true
+          }
         }
       }
+    }
 
-    }).on('ace-initialized', function(e, results) {
+  }).on('ace-attached-results', function (e, form, results) {
+    // .ace results method called as child from parent form instance
+    results.on('ace-initialized', function(e, results) {
       form.destroy();
 
       // Make school description expandable
@@ -66,21 +63,13 @@
       // with auto attaching form on page change
       resultsPagerUpdate(results, 'init');
 
-    }).on('ace-attached-form', function(e, results, customform, result) {
-
-      customform.on('ace-initialized', function(e, customform) {
-        customform.ace('zip', {
-          field_zip: 'PostalCode',
-          field_city: 'City',
-          field_state: 'State',
-          width_adjust: false,
-          autofetch: 'not_predefined'
-        });
+    }).on('ace-attached-form', function(e, results, resultform, result) {
+      resultform.on('ace-initialized', function(e, resultform) {
 
         // Add new action to form only we have some school form submitted
-        formNotInterestedActionInit(customform);
+        formNotInterestedActionInit(resultform);
 
-      }).on('ace-submitted', function(e, customform) {
+      }).on('ace-submitted', function(e, resultform) {
         formNotInterestedActionInit();
       });
 

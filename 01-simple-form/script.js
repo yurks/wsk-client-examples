@@ -16,22 +16,28 @@ Ace.el('#demo').ace('form', {
   // Can be omitted (rendering single page with all available fields).
   pages: [
     // You can specify what fields are belong to a "page".
-    { fields: ['Program', 'Concentration', 'State'] },
+    {fields: ['Program', 'Concentration', 'FirstName']},
+    {fields: ['PostalCode', 'City', 'State']},
 
     // And skip rendering auto-generated page witn remaining fields.
-    { fields: 'auto-skip' }
+    {fields: 'auto-skip'}
   ],
 
   // Custom options can be applied to individual fields.
   fields: {
     // Changing field label, placeholder, etc.
-    Concentration: { label: 'Subject of interest', placeholder: '-- choose one --' },
+    Concentration: {label: 'Subject of interest', placeholder: '-- choose one --'},
 
     // Combine depended fields into one.
-    Program: { depend_combine: true },
+    Program: {depend_combine: true},
 
     // Add custom field validation.
-    State: { validation: /^CA$/, placeholder: 'type "CA"'}
+    FirstName: {validation: /^Bruce$/, placeholder: 'type "Bruce"'}
+  },
+
+  zip: {
+    // Always validate City-State pairs
+    alwaysvalidate: true
   }
 
 });
