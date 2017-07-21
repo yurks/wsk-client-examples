@@ -7,11 +7,14 @@
     authkey: '52ab62e8-f9fc-4986-8a4e-dc10573c21bd',
 
     pages: [
-      {fields: ['DegreeLevel', 'Program', 'Concentration', 'PostalCode']},
+      {fields: ['HighestLevelOfEducation', 'DegreeLevel', 'Program', 'Concentration', 'PostalCode']},
       {fields: 'auto-skip'}
     ],
 
     fields: {
+      'HighestLevelOfEducation': {
+        field_type: 'Select'
+      },
       'DegreeLevel': {
         label: 'Desired Degree Level',
         field_type: 'Select',
