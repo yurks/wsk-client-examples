@@ -105,6 +105,11 @@
     line-height: 1.35;
 }
 
+.ace-field-controls .ace-field-value {
+    padding: .37em .3em .3em .4em;
+    display: inline-block;
+}
+
 .ace-field-controls .ace-control-select {
     text-transform: none;
     max-width: 100%;
@@ -173,9 +178,10 @@
     color: transparent;
     text-shadow: 0 0 0 #000;;
 }
+/*
 .ace-field-required .ace-control-select .ace-placeholder {
-    display3: none!important;
-}
+    display: none!important;
+}*/
 
 
 /* field placeholders */
